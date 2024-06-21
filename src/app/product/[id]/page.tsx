@@ -1,4 +1,5 @@
 "use client";
+
 interface Product {
   params: {
     id: number;
@@ -12,10 +13,10 @@ const request = async (id: number) => {
   return data;
 };
 
-async function SingleProduct(params: Product) {
-  const product = await request(params.params.id);
+async function SingleProduct({ params }: { params: { id: number } }) {
+  const product = await request(params.id);
   return (
-    <div className="container ">
+    <div className="container">
       <div className="font-sans p-8 tracking-wide max-lg:max-w-2xl mx-auto">
         <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-4 text-center lg:sticky top-8">
@@ -124,8 +125,8 @@ async function SingleProduct(params: Product) {
                   </h3>
                 </li>
 
-                {product.reviews.map((review: Product) => {
-                  return <li>{review.comment}</li>;
+                {product.reviews.map((review: Product, index: number) => {
+                  return <li key={index}>{review.comment}</li>;
                 })}
               </ul>
             </div>
