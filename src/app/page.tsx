@@ -21,10 +21,10 @@ async function Home() {
   return (
     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:font-[sans-serif] p-4 mx-auto lg:max-w-7xl md:max-w-3xl max-w-lg">
       {data &&
-        data.products.map((product: Product) => (
+        data.products.map((product: Product, index: number) => (
           <li
             className="bg-white border overflow-hidden rounded-2xl cursor-pointer hover:border-blue-600 transition-all relative"
-            key={product.id}
+            key={index}
           >
             <div className="">
               <div className="bg-gray-50 p-4 h-[250px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 rounded-b-2xl">
